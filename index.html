@@ -11,7 +11,7 @@
 <meta name="description" content="ZZZLIN的个人博客，hugo，golang">
 <meta name="author" content="zzzlin">
 <link rel="canonical" href="https://lopzzzzzzzzz.github.io/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.aab500ebfe366409c4261e67b0c1b9a7bb3ef5a170019ae5de3c58ee4fd08c4e.css" integrity="sha256-qrUA6/42ZAnEJh5nsMG5p7s&#43;9aFwAZrl3jxY7k/QjE4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1a0f3e90e3adb93ebaa258be00248c532b5544a6f37bb2bb5f2bed4ad9a9ca02.css" integrity="sha256-Gg8&#43;kOOtuT66oli&#43;ACSMUytVRKbze7K7XyvtStmpygI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://lopzzzzzzzzz.github.io/w1.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="https://lopzzzzzzzzz.github.io/w1.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="https://lopzzzzzzzzz.github.io/w1.svg">
@@ -29,35 +29,8 @@
         }
 
     </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:title" content="ZZZLIN&#39;s Blog" />
+</noscript><link href="https://fonts.cdnfonts.com/css/code-new-roman" rel="stylesheet">
+                <meta property="og:title" content="ZZZLIN&#39;s Blog" />
 <meta property="og:description" content="ZZZLIN的个人博客，hugo，golang" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://lopzzzzzzzzz.github.io/" />
@@ -81,14 +54,10 @@
 </script>
 </head>
 
-<body class="list" id="top">
+<body class="list dark" id="top">
 <script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
+    if (localStorage.getItem("pref-theme") === "light") {
         document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
     }
 
 </script>
@@ -164,10 +133,12 @@
 </svg>
     </a>
     <a href="wechat.png" target="_blank" rel="noopener noreferrer me" title="WeChat">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 50 50">
+    <g fill="currentColor" stroke="currentColor" stroke-width="2">
+        <path
+            d="M 19 6 C 9.746094 6 2 12.359375 2 20.5 C 2 24.894531 4.292969 28.679688 7.835938 31.324219 L 5.179688 39.304688 L 13.472656 34.167969 C 15.1875 34.707031 17.082031 35 19 35 C 19.746094 35 20.472656 34.945313 21.195313 34.863281 C 23.378906 39.105469 28.328125 42 34 42 C 35.722656 42 37.316406 41.675781 38.796875 41.234375 L 45.644531 45.066406 L 43.734375 38.515625 C 46.3125 36.375 48 33.394531 48 30 C 48 23.789063 42.597656 18.835938 35.75 18.105469 C 34.398438 11.125 27.324219 6 19 6 Z M 19 8 C 26.308594 8 32.328125 12.351563 33.703125 18.011719 C 26.183594 18.148438 20 23.355469 20 30 C 20 31.019531 20.160156 32.003906 20.4375 32.941406 C 19.964844 32.980469 19.484375 33 19 33 C 17.101563 33 15.199219 32.710938 13.632813 32.15625 L 13.183594 32 L 8.820313 34.699219 L 10.1875 30.59375 L 9.5625 30.171875 C 6.082031 27.820313 4 24.445313 4 20.5 C 4 13.640625 10.65625 8 19 8 Z M 13 14 C 11.898438 14 11 14.898438 11 16 C 11 17.101563 11.898438 18 13 18 C 14.101563 18 15 17.101563 15 16 C 15 14.898438 14.101563 14 13 14 Z M 25 14 C 23.898438 14 23 14.898438 23 16 C 23 17.101563 23.898438 18 25 18 C 26.101563 18 27 17.101563 27 16 C 27 14.898438 26.101563 14 25 14 Z M 34 20 C 40.746094 20 46 24.535156 46 30 C 46 32.957031 44.492188 35.550781 42.003906 37.394531 L 41.445313 37.8125 L 42.355469 40.933594 L 39.105469 39.109375 L 38.683594 39.25 C 37.285156 39.71875 35.6875 40 34 40 C 27.253906 40 22 35.464844 22 30 C 22 24.535156 27.253906 20 34 20 Z M 29.5 26 C 28.699219 26 28 26.699219 28 27.5 C 28 28.300781 28.699219 29 29.5 29 C 30.300781 29 31 28.300781 31 27.5 C 31 26.699219 30.300781 26 29.5 26 Z M 38.5 26 C 37.699219 26 37 26.699219 37 27.5 C 37 28.300781 37.699219 29 38.5 29 C 39.300781 29 40 28.300781 40 27.5 C 40 26.699219 39.300781 26 38.5 26 Z">
+        </path>
+    </g>
 </svg>
     </a>
     <a href="mailto:1806667465@qq.com" target="_blank" rel="noopener noreferrer me" title="Email">
