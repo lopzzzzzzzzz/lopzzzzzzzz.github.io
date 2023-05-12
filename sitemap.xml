@@ -2,10 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://lopzzzzzzzz.github.io/categories/</loc>
+    <loc>https://lopzzzzzzzzz.github.io/categories/</loc>
+    <lastmod>2023-05-12T11:43:52+08:00</lastmod>
   </url><url>
-    <loc>https://lopzzzzzzzz.github.io/</loc>
+    <loc>https://lopzzzzzzzzz.github.io/tags/go/</loc>
+    <lastmod>2023-05-12T11:43:52+08:00</lastmod>
   </url><url>
-    <loc>https://lopzzzzzzzz.github.io/tags/</loc>
+    <loc>https://lopzzzzzzzzz.github.io/posts/tech/go%E4%B8%ADdefer%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2023-05-12T11:43:52+08:00</lastmod>
+  </url><url>
+    <loc>https://lopzzzzzzzzz.github.io/posts/</loc>
+    <lastmod>2023-05-12T11:43:52+08:00</lastmod>
+  </url><url>
+    <loc>https://lopzzzzzzzzz.github.io/tags/</loc>
+    <lastmod>2023-05-12T11:43:52+08:00</lastmod>
+  </url><url>
+    <loc>https://lopzzzzzzzzz.github.io/</loc>
+    <lastmod>2023-05-12T11:43:52+08:00</lastmod>
+  </url><url>
+    <loc>https://lopzzzzzzzzz.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2023-05-12T11:43:52+08:00</lastmod>
+  </url><url>
+    <loc>https://lopzzzzzzzzz.github.io/posts/tech/</loc>
+    <lastmod>2023-05-12T11:43:52+08:00</lastmod>
+  </url><url>
+    <loc>https://lopzzzzzzzzz.github.io/posts/tech/go%E4%B8%ADfor%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%9D%91/</loc>
+    <lastmod>2023-05-12T11:39:31+08:00</lastmod>
+  </url><url>
+    <loc>https://lopzzzzzzzzz.github.io/about/</loc>
+    <lastmod>2023-05-11T15:45:04+08:00</lastmod>
+  </url><url>
+    <loc>https://lopzzzzzzzzz.github.io/archives/</loc>
+  </url><url>
+    <loc>https://lopzzzzzzzzz.github.io/search/</loc>
+  </url><url>
+    <loc>https://lopzzzzzzzzz.github.io/series/</loc>
+  </url><url>
+    <loc>https://lopzzzzzzzzz.github.io/posts/life/</loc>
   </url>
 </urlset>
