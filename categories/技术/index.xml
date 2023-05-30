@@ -6,7 +6,16 @@
     <description>Recent content in 技术 on ZZZLIN&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 12 May 2023 11:43:52 +0800</lastBuildDate><atom:link href="https://lopzzzzzzzzz.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 May 2023 20:16:16 +0800</lastBuildDate><atom:link href="https://lopzzzzzzzzz.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go原生sql使用</title>
+      <link>https://lopzzzzzzzzz.github.io/posts/tech/go%E5%8E%9F%E7%94%9Fsql%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 29 May 2023 20:16:16 +0800</pubDate>
+      
+      <guid>https://lopzzzzzzzzz.github.io/posts/tech/go%E5%8E%9F%E7%94%9Fsql%E4%BD%BF%E7%94%A8/</guid>
+      <description>安装驱动 go中database/sql已封装好了完整的sql使用API，但没有驱动，需要导入对应数据库的驱动。 在这里以mysql为例，Go MySQL</description>
+    </item>
+    
     <item>
       <title>Go中Defer使用</title>
       <link>https://lopzzzzzzzzz.github.io/posts/tech/go%E4%B8%ADdefer%E4%BD%BF%E7%94%A8/</link>
