@@ -6,7 +6,16 @@
     <description>Recent content in 技术 on ZZZLIN&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 29 May 2023 20:16:16 +0800</lastBuildDate><atom:link href="https://lopzzzzzzzzz.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Jun 2023 15:47:54 +0800</lastBuildDate><atom:link href="https://lopzzzzzzzzz.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go脚手架学习</title>
+      <link>https://lopzzzzzzzzz.github.io/posts/tech/go%E8%84%9A%E6%89%8B%E6%9E%B6/</link>
+      <pubDate>Fri, 02 Jun 2023 15:47:54 +0800</pubDate>
+      
+      <guid>https://lopzzzzzzzzz.github.io/posts/tech/go%E8%84%9A%E6%89%8B%E6%9E%B6/</guid>
+      <description>脚手架有什么用 脚手架（Scaffold）是一种快速搭建项目的工具，可以帮助开发人员自动化生成项目的基础结构和文件，从而提高开发效率和减少出错</description>
+    </item>
+    
     <item>
       <title>Go原生sql使用</title>
       <link>https://lopzzzzzzzzz.github.io/posts/tech/go%E5%8E%9F%E7%94%9Fsql%E4%BD%BF%E7%94%A8/</link>
