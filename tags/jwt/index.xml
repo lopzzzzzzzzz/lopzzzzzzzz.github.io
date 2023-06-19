@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>jwt on ZZZLIN&#39;s Blog</title>
+    <link>https://lopzzzzzzzzz.github.io/tags/jwt/</link>
+    <description>Recent content in jwt on ZZZLIN&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 18 Jun 2023 21:27:03 +0800</lastBuildDate><atom:link href="https://lopzzzzzzzzz.github.io/tags/jwt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go-Jwt登陆，以及限制一个设备登陆</title>
+      <link>https://lopzzzzzzzzz.github.io/posts/tech/jwt%E9%99%90%E5%88%B6%E4%B8%80%E4%B8%AA%E8%AE%BE%E5%A4%87%E7%99%BB%E9%99%86/</link>
+      <pubDate>Sun, 18 Jun 2023 21:27:03 +0800</pubDate>
+      
+      <guid>https://lopzzzzzzzzz.github.io/posts/tech/jwt%E9%99%90%E5%88%B6%E4%B8%80%E4%B8%AA%E8%AE%BE%E5%A4%87%E7%99%BB%E9%99%86/</guid>
+      <description>JWT jwt，即json-web-token，是一种轻量级的认证的令牌，通常用于身份认证和授权。由三部分组成：头部（Header）、载荷（Pay</description>
+    </item>
+    
+  </channel>
+</rss>
