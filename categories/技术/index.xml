@@ -6,7 +6,16 @@
     <description>Recent content in 技术 on ZZZLIN&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 18 Jun 2023 21:27:03 +0800</lastBuildDate><atom:link href="https://lopzzzzzzzzz.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Jun 2023 20:40:23 +0800</lastBuildDate><atom:link href="https://lopzzzzzzzzz.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker</title>
+      <link>https://lopzzzzzzzzz.github.io/posts/tech/docker/</link>
+      <pubDate>Fri, 23 Jun 2023 20:40:23 +0800</pubDate>
+      
+      <guid>https://lopzzzzzzzzz.github.io/posts/tech/docker/</guid>
+      <description>镜像加速 https://cr.console.aliyun.com/?spm=a2c4g.60750.0.0.19e6296aU86EO3 阿里云有国内的镜像加速节点，登陆完添加节点即可。 镜像相关 拉取镜像 命令：docker pull 镜像名称 不指定版本默认是latest，即最新版</description>
+    </item>
+    
     <item>
       <title>Go-Jwt登陆，以及限制一个设备登陆</title>
       <link>https://lopzzzzzzzzz.github.io/posts/tech/jwt%E9%99%90%E5%88%B6%E4%B8%80%E4%B8%AA%E8%AE%BE%E5%A4%87%E7%99%BB%E9%99%86/</link>

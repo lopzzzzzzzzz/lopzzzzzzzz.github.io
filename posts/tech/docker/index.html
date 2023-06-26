@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Docker | ZZZLIN&#39;s Blog</title>
+<meta name="keywords" content="docker">
+<meta name="description" content="镜像加速 https://cr.console.aliyun.com/?spm=a2c4g.60750.0.0.19e6296aU86EO3 阿里云有国内的镜像加速节点，登陆完添加节点即可。 镜像相关 拉取镜像 命令：docker pull 镜像名称 不指定版本默认是latest，即最新版">
+<meta name="author" content="Sulv">
+<link rel="canonical" href="https://lopzzzzzzzzz.github.io/posts/tech/docker/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1a0f3e90e3adb93ebaa258be00248c532b5544a6f37bb2bb5f2bed4ad9a9ca02.css" integrity="sha256-Gg8&#43;kOOtuT66oli&#43;ACSMUytVRKbze7K7XyvtStmpygI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://lopzzzzzzzzz.github.io/w1.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lopzzzzzzzzz.github.io/w1.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lopzzzzzzzzz.github.io/w1.svg">
+<link rel="apple-touch-icon" href="https://lopzzzzzzzzz.github.io/w1.svg">
+<link rel="mask-icon" href="https://lopzzzzzzzzz.github.io/w1.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><link href="https://fonts.cdnfonts.com/css/code-new-roman" rel="stylesheet">
+                <meta property="og:title" content="Docker" />
+<meta property="og:description" content="镜像加速 https://cr.console.aliyun.com/?spm=a2c4g.60750.0.0.19e6296aU86EO3 阿里云有国内的镜像加速节点，登陆完添加节点即可。 镜像相关 拉取镜像 命令：docker pull 镜像名称 不指定版本默认是latest，即最新版" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lopzzzzzzzzz.github.io/posts/tech/docker/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-23T20:40:23+08:00" />
+<meta property="article:modified_time" content="2023-06-23T20:40:23+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Docker"/>
+<meta name="twitter:description" content="镜像加速 https://cr.console.aliyun.com/?spm=a2c4g.60750.0.0.19e6296aU86EO3 阿里云有国内的镜像加速节点，登陆完添加节点即可。 镜像相关 拉取镜像 命令：docker pull 镜像名称 不指定版本默认是latest，即最新版"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://lopzzzzzzzzz.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "技术",
+      "item": "https://lopzzzzzzzzz.github.io/posts/tech/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Docker",
+      "item": "https://lopzzzzzzzzz.github.io/posts/tech/docker/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Docker",
+  "name": "Docker",
+  "description": "镜像加速 https://cr.console.aliyun.com/?spm=a2c4g.60750.0.0.19e6296aU86EO3 阿里云有国内的镜像加速节点，登陆完添加节点即可。 镜像相关 拉取镜像 命令：docker pull 镜像名称 不指定版本默认是latest，即最新版",
+  "keywords": [
+    "docker"
+  ],
+  "articleBody": "镜像加速 https://cr.console.aliyun.com/?spm=a2c4g.60750.0.0.19e6296aU86EO3\n阿里云有国内的镜像加速节点，登陆完添加节点即可。\n镜像相关 拉取镜像 命令：docker pull 镜像名称\n不指定版本默认是latest，即最新版本\n如docker pull tomcat:8.0\n查看镜像 命令：docker images 或 docker image ls\ndocker images -q 镜像名：返回这个镜像的所有版本的id，不加镜像名则返回整个本地仓库的所有镜像\n删除镜像 docker image rm 镜像名:版本(或者id) ：非强制删除，若对应镜像的容器正在运行，则无法删除\ndocker image rm -f 镜像名:版本(或者id)：强制删除，无论容器是否在运行\ndocker image rm -f $(docker image -q)：删库跑路🌚\n容器相关 运行容器 docker run -d --name tomcat01 -p 8081:8080 tomcat:8.0\n-d ：作为守护进程后台启动\n--name ：指定名字（唯一）\n-p ：宿主机和容器的端口映射，在这里是将宿主机的8081端口映射容器的8080端口，通过127.0.0.1:8081即可访问tomcat服务了。\ntomcat:8.0 ：指定容器镜像\n查看容器 docker ps ：查看所有正在运行的容器\ndocker ps -a ：查看所有容器（包括关闭的暂停的）\ndocker ps -q ：以id方式查看所有正在运行容器\n停止｜开启｜重启｜暂停｜恢复容器 docker stop 容器名字或id ：停止\ndocker start 容器名字或id ：开启\ndocker restart 容器名字或id ：重启\ndocker pause|unpause 容器名字或id ：暂停｜恢复容器\n删除容器 docker rm 容器名字或id ：删除已经停止运行的容器\ndocker rm -f 容器名字或id ：强制删除容器\n查看容器内部日志 docker logs 容器名字或id ：查看日志输出，加参数-f实时更新\n与容器交互 docker exec -it 容器名字或id bash ：进入容器所在的os进行交互，exit退出\n容器与宿主机拷贝文件 docker cp 容器名字或id:目录 宿主机目录 ：拷贝文件，写在前面的目录文件拷贝到后面的\n如docker cp tomcat01:/usr/local/tomcat /root/cp，将容器的tomcat目录复制到主机cp目录下\n查看容器内进程 docker top 容器名字或id\n查看容器细节 docker inspect 容器名字或id\n容器数据卷 数据卷就是指定宿主机和容器的目录进行双向映射，就可以通过修改宿主机或容器的文件进行互相影响。\n配置文件需要频繁修改 容器内部的数据需要备份 删除容器不希望删除数据 以上场景大概率需要使用数据卷。\n数据卷只能在docker容器第一次启动时指定。\ndocker run -v /root/aaa:/usr/local/tomcat/webapps tomcat:8.0 ，这样便实现了宿主机的aaa目录和容器内的webapps目录的双向映射，在任意一边目录下任意创建文件，另一边都会进行同步。\n为了保持同步，容器对应的目录下会强制同步成宿主机目录，也就是说webapps下会清空aaa目录下不存在的文件目录，只保留和aaa目录一样的文件目录。\ndocker run -v abc:/usr/local/tomcat/webapps tomcat:8.0 ，别名设置数据卷，这种方式不会清空webapps下的目录，且目录默认创建在/var/lib/docker/volumes/下。\n容器打包成镜像 docker commit -m \"messgae\" -a \"author\" 容器名字或id 镜像名:版本\n容器备份与恢复 备份如：docker save tomcat:8.0 -o tomcat-8.0.tar\n恢复如：docker load -i tomcat-8.0.tar\n",
+  "wordCount" : "1093",
+  "inLanguage": "en",
+  "datePublished": "2023-06-23T20:40:23+08:00",
+  "dateModified": "2023-06-23T20:40:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Sulv"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lopzzzzzzzzz.github.io/posts/tech/docker/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ZZZLIN's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lopzzzzzzzzz.github.io/w1.svg"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://lopzzzzzzzzz.github.io/" accesskey="h" title="喜欢悠哉独自在 (Alt + H)">喜欢悠哉独自在</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://lopzzzzzzzzz.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://lopzzzzzzzzz.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://lopzzzzzzzzz.github.io/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://lopzzzzzzzzz.github.io/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://lopzzzzzzzzz.github.io/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://lopzzzzzzzzz.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://lopzzzzzzzzz.github.io/posts/">Posts</a>&nbsp;»&nbsp;<a href="https://lopzzzzzzzzz.github.io/posts/tech/">技术</a></div>
+    <h1 class="post-title">
+      Docker
+    </h1>
+    <div class="post-meta"><span title='2023-06-23 20:40:23 +0800 CST'>2023-06-23</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Sulv
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e9%95%9c%e5%83%8f%e5%8a%a0%e9%80%9f" aria-label="镜像加速">镜像加速</a></li>
+                    <li>
+                        <a href="#%e9%95%9c%e5%83%8f%e7%9b%b8%e5%85%b3" aria-label="镜像相关">镜像相关</a><ul>
+                            
+                    <li>
+                        <a href="#%e6%8b%89%e5%8f%96%e9%95%9c%e5%83%8f" aria-label="拉取镜像">拉取镜像</a></li>
+                    <li>
+                        <a href="#%e6%9f%a5%e7%9c%8b%e9%95%9c%e5%83%8f" aria-label="查看镜像">查看镜像</a></li>
+                    <li>
+                        <a href="#%e5%88%a0%e9%99%a4%e9%95%9c%e5%83%8f" aria-label="删除镜像">删除镜像</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%ae%b9%e5%99%a8%e7%9b%b8%e5%85%b3" aria-label="容器相关">容器相关</a><ul>
+                            
+                    <li>
+                        <a href="#%e8%bf%90%e8%a1%8c%e5%ae%b9%e5%99%a8" aria-label="运行容器">运行容器</a></li>
+                    <li>
+                        <a href="#%e6%9f%a5%e7%9c%8b%e5%ae%b9%e5%99%a8" aria-label="查看容器">查看容器</a></li>
+                    <li>
+                        <a href="#%e5%81%9c%e6%ad%a2%e5%bc%80%e5%90%af%e9%87%8d%e5%90%af%e6%9a%82%e5%81%9c%e6%81%a2%e5%a4%8d%e5%ae%b9%e5%99%a8" aria-label="停止｜开启｜重启｜暂停｜恢复容器">停止｜开启｜重启｜暂停｜恢复容器</a></li>
+                    <li>
+                        <a href="#%e5%88%a0%e9%99%a4%e5%ae%b9%e5%99%a8" aria-label="删除容器">删除容器</a></li>
+                    <li>
+                        <a href="#%e6%9f%a5%e7%9c%8b%e5%ae%b9%e5%99%a8%e5%86%85%e9%83%a8%e6%97%a5%e5%bf%97" aria-label="查看容器内部日志">查看容器内部日志</a></li>
+                    <li>
+                        <a href="#%e4%b8%8e%e5%ae%b9%e5%99%a8%e4%ba%a4%e4%ba%92" aria-label="与容器交互">与容器交互</a></li>
+                    <li>
+                        <a href="#%e5%ae%b9%e5%99%a8%e4%b8%8e%e5%ae%bf%e4%b8%bb%e6%9c%ba%e6%8b%b7%e8%b4%9d%e6%96%87%e4%bb%b6" aria-label="容器与宿主机拷贝文件">容器与宿主机拷贝文件</a></li>
+                    <li>
+                        <a href="#%e6%9f%a5%e7%9c%8b%e5%ae%b9%e5%99%a8%e5%86%85%e8%bf%9b%e7%a8%8b" aria-label="查看容器内进程">查看容器内进程</a></li>
+                    <li>
+                        <a href="#%e6%9f%a5%e7%9c%8b%e5%ae%b9%e5%99%a8%e7%bb%86%e8%8a%82" aria-label="查看容器细节">查看容器细节</a></li>
+                    <li>
+                        <a href="#%e5%ae%b9%e5%99%a8%e6%95%b0%e6%8d%ae%e5%8d%b7" aria-label="容器数据卷">容器数据卷</a></li>
+                    <li>
+                        <a href="#%e5%ae%b9%e5%99%a8%e6%89%93%e5%8c%85%e6%88%90%e9%95%9c%e5%83%8f" aria-label="容器打包成镜像">容器打包成镜像</a></li>
+                    <li>
+                        <a href="#%e5%ae%b9%e5%99%a8%e5%a4%87%e4%bb%bd%e4%b8%8e%e6%81%a2%e5%a4%8d" aria-label="容器备份与恢复">容器备份与恢复</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h1 id="镜像加速">镜像加速<a hidden class="anchor" aria-hidden="true" href="#镜像加速">#</a></h1>
+<p><a href="https://cr.console.aliyun.com/?spm=a2c4g.60750.0.0.19e6296aU86EO3">https://cr.console.aliyun.com/?spm=a2c4g.60750.0.0.19e6296aU86EO3</a></p>
+<p>阿里云有国内的镜像加速节点，登陆完添加节点即可。</p>
+<h1 id="镜像相关">镜像相关<a hidden class="anchor" aria-hidden="true" href="#镜像相关">#</a></h1>
+<h2 id="拉取镜像">拉取镜像<a hidden class="anchor" aria-hidden="true" href="#拉取镜像">#</a></h2>
+<p>命令：<code>docker pull 镜像名称</code></p>
+<p>不指定版本默认是latest，即最新版本</p>
+<p>如<code>docker pull tomcat:8.0</code></p>
+<h2 id="查看镜像">查看镜像<a hidden class="anchor" aria-hidden="true" href="#查看镜像">#</a></h2>
+<p>命令：<code>docker images</code> 或 <code>docker image ls</code></p>
+<p><code>docker images -q 镜像名</code>：返回这个镜像的所有版本的id，不加镜像名则返回整个本地仓库的所有镜像</p>
+<h2 id="删除镜像">删除镜像<a hidden class="anchor" aria-hidden="true" href="#删除镜像">#</a></h2>
+<p><code>docker image rm 镜像名:版本(或者id) </code>：非强制删除，若对应镜像的容器正在运行，则无法删除</p>
+<p><code>docker image rm -f 镜像名:版本(或者id)</code>：强制删除，无论容器是否在运行</p>
+<p><code>docker image rm -f $(docker image -q)</code>：删库跑路🌚</p>
+<h1 id="容器相关">容器相关<a hidden class="anchor" aria-hidden="true" href="#容器相关">#</a></h1>
+<h2 id="运行容器">运行容器<a hidden class="anchor" aria-hidden="true" href="#运行容器">#</a></h2>
+<p><code>docker run -d --name tomcat01 -p 8081:8080 tomcat:8.0</code></p>
+<p><code>-d </code>：作为守护进程后台启动</p>
+<p><code>--name</code> ：指定名字（唯一）</p>
+<p><code>-p</code> ：宿主机和容器的端口映射，在这里是将宿主机的8081端口映射容器的8080端口，通过127.0.0.1:8081即可访问tomcat服务了。</p>
+<p><code>tomcat:8.0</code> ：指定容器镜像</p>
+<h2 id="查看容器">查看容器<a hidden class="anchor" aria-hidden="true" href="#查看容器">#</a></h2>
+<p><code>docker ps</code> ：查看所有<strong>正在运行</strong>的容器</p>
+<p><code>docker ps -a</code> ：查看所有容器（包括关闭的暂停的）</p>
+<p><code>docker ps -q</code> ：以id方式查看所有正在运行容器</p>
+<h2 id="停止开启重启暂停恢复容器">停止｜开启｜重启｜暂停｜恢复容器<a hidden class="anchor" aria-hidden="true" href="#停止开启重启暂停恢复容器">#</a></h2>
+<p><code>docker stop 容器名字或id</code> ：停止</p>
+<p><code>docker start 容器名字或id</code> ：开启</p>
+<p><code>docker restart 容器名字或id</code> ：重启</p>
+<p><code>docker pause|unpause 容器名字或id</code> ：暂停｜恢复容器</p>
+<h2 id="删除容器">删除容器<a hidden class="anchor" aria-hidden="true" href="#删除容器">#</a></h2>
+<p><code>docker rm 容器名字或id</code> ：删除已经停止运行的容器</p>
+<p><code>docker rm -f 容器名字或id</code> ：强制删除容器</p>
+<h2 id="查看容器内部日志">查看容器内部日志<a hidden class="anchor" aria-hidden="true" href="#查看容器内部日志">#</a></h2>
+<p><code>docker logs 容器名字或id</code> ：查看日志输出，加参数<code>-f</code>实时更新</p>
+<h2 id="与容器交互">与容器交互<a hidden class="anchor" aria-hidden="true" href="#与容器交互">#</a></h2>
+<p><code>docker exec -it 容器名字或id bash</code> ：进入容器所在的os进行交互，<code>exit</code>退出</p>
+<h2 id="容器与宿主机拷贝文件">容器与宿主机拷贝文件<a hidden class="anchor" aria-hidden="true" href="#容器与宿主机拷贝文件">#</a></h2>
+<p><code>docker cp 容器名字或id:目录 宿主机目录</code> ：拷贝文件，写在前面的目录文件拷贝到后面的</p>
+<p>如<code>docker cp tomcat01:/usr/local/tomcat /root/cp</code>，将容器的tomcat目录复制到主机cp目录下</p>
+<h2 id="查看容器内进程">查看容器内进程<a hidden class="anchor" aria-hidden="true" href="#查看容器内进程">#</a></h2>
+<p><code>docker top 容器名字或id</code></p>
+<h2 id="查看容器细节">查看容器细节<a hidden class="anchor" aria-hidden="true" href="#查看容器细节">#</a></h2>
+<p><code>docker inspect 容器名字或id</code></p>
+<h2 id="容器数据卷">容器数据卷<a hidden class="anchor" aria-hidden="true" href="#容器数据卷">#</a></h2>
+<p>数据卷就是指定宿主机和容器的目录进行双向映射，就可以通过修改宿主机或容器的文件进行互相影响。</p>
+<ul>
+<li>配置文件需要频繁修改</li>
+<li>容器内部的数据需要备份</li>
+<li>删除容器不希望删除数据</li>
+</ul>
+<p>以上场景大概率需要使用数据卷。</p>
+<p>数据卷只能在docker容器<strong>第一次启动</strong>时指定。</p>
+<ul>
+<li>
+<p><code>docker run -v /root/aaa:/usr/local/tomcat/webapps tomcat:8.0</code> ，这样便实现了宿主机的aaa目录和容器内的webapps目录的双向映射，在任意一边目录下任意创建文件，另一边都会进行同步。</p>
+<p>为了保持同步，容器对应的目录下会强制同步成宿主机目录，也就是说webapps下会清空aaa目录下不存在的文件目录，只保留和aaa目录一样的文件目录。</p>
+</li>
+<li>
+<p><code>docker run -v abc:/usr/local/tomcat/webapps tomcat:8.0</code> ，别名设置数据卷，这种方式不会清空webapps下的目录，且目录默认创建在<code>/var/lib/docker/volumes/</code>下。</p>
+</li>
+</ul>
+<h2 id="容器打包成镜像">容器打包成镜像<a hidden class="anchor" aria-hidden="true" href="#容器打包成镜像">#</a></h2>
+<p><code>docker commit -m &quot;messgae&quot; -a &quot;author&quot; 容器名字或id 镜像名:版本</code></p>
+<h2 id="容器备份与恢复">容器备份与恢复<a hidden class="anchor" aria-hidden="true" href="#容器备份与恢复">#</a></h2>
+<p>备份如：<code>docker save tomcat:8.0 -o tomcat-8.0.tar</code></p>
+<p>恢复如：<code>docker load -i tomcat-8.0.tar</code></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://lopzzzzzzzzz.github.io/tags/docker/">docker</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://lopzzzzzzzzz.github.io/posts/tech/jwt%E9%99%90%E5%88%B6%E4%B8%80%E4%B8%AA%E8%AE%BE%E5%A4%87%E7%99%BB%E9%99%86/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Go-Jwt登陆，以及限制一个设备登陆</span>
+  </a>
+</nav>
+
+    
+  </footer>
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">💬评论</span>
+        <hr />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.4.11/twikoo.all.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: "https://twikoo-beryl-five.vercel.app/",  
+            el: "#tcomment",
+            lang: 'zh-CN',
+            region: 'ap-guangzhou',  
+            path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        });
+    </script>
+</div>
+
+
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://lopzzzzzzzzz.github.io/">ZZZLIN&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

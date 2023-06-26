@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>标签1 on ZZZLIN&#39;s Blog</title>
+    <link>https://lopzzzzzzzzz.github.io/tags/%E6%A0%87%E7%AD%BE1/</link>
+    <description>Recent content in 标签1 on ZZZLIN&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 23 Jun 2023 20:40:23 +0800</lastBuildDate><atom:link href="https://lopzzzzzzzzz.github.io/tags/%E6%A0%87%E7%AD%BE1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker</title>
+      <link>https://lopzzzzzzzzz.github.io/posts/tech/docker/</link>
+      <pubDate>Fri, 23 Jun 2023 20:40:23 +0800</pubDate>
+      
+      <guid>https://lopzzzzzzzzz.github.io/posts/tech/docker/</guid>
+      <description>镜像加速 https://cr.console.aliyun.com/?spm=a2c4g.60750.0.0.19e6296aU86EO3 阿里云有国内的镜像加速节点，登陆完添加节点即可。 镜像相关 拉取镜像 命令：docker pull 镜像名称 不指定版本默认是latest，即最新版</description>
+    </item>
+    
+  </channel>
+</rss>
